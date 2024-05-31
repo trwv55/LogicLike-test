@@ -1,0 +1,17 @@
+.courses-item {
+    list-style-type: none;
+    padding: 12px 0;
+    padding-left: 12px;
+    cursor: pointer;
+    color: #39414b;
+    // width: 100%;
+
+    &:not(:last-of-type) {
+    }
+
+    &.active {
+        color: #fff;
+        background: #5fbf77;
+        border-radius: 12px;
+    }
+}
