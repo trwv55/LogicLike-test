@@ -1,12 +1,11 @@
 import { TCoursesData } from '../../types/types'
 import Course from '../Course/Course'
 
-interface IBoardCoursesProps {
+type TBoardCoursesProps = {
     dataCourse: TCoursesData[]
 }
 
-const BoardCourses = ({ dataCourse }) => {
-    console.log('dataCourse', dataCourse)
+const BoardCourses = ({ dataCourse }: TBoardCoursesProps) => {
     
   return (
     <div className='board-courses'>

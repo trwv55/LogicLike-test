@@ -1,8 +1,8 @@
 // Определяем типы ключей в LIST_NAME
-type ListNameKeys = 'ALL' | 'LOGIC' | 'RIDDLE' | 'PUZZLES' | 'TRAVEL';
+type ListNameKeys = 'ALL' | 'LOGIC' | 'RIDDLE' | 'PUZZLES' | 'TRAVEL' | 'CHESS' | 'WORLD';
 
 // Определяем типы значений в LIST_NAME
-type ListNameValues = 'Все темы' | 'Логика и мышление' | 'Загадки' | 'Головоломки' | 'Путешествия';
+export type ListNameValues = 'Все темы' | 'Логика и мышление' | 'Загадки' | 'Головоломки' | 'Путешествия' | 'Шахматы' | 'Окружающий мир';
 
 // Типизируем LIST_NAME в ./config.ts
 export type TListName = {

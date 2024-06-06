@@ -1,28 +1,36 @@
 import { useState } from 'react';
-import { LIST_KEYS } from '../../config';
+import { LIST_KEYS, LIST_NAME } from '../../config';
 import ListItem from '../ListItem/ListItem';
+import { ListNameValues, TListName } from '../../types/types';
+
+type TListCoursesProps = {
+    setListItem: (item: ListNameValues) => void
+    filterCourses: (item: ListNameValues) => void
+}
 
 // Список курсов
-const ListCourses = () => {
-    const list = LIST_KEYS;
-    const firstKey = Object.keys(LIST_KEYS)[0];
+const ListCourses = ({ setListItem, filterCourses }: TListCoursesProps) => {
+    const list = LIST_NAME;
+    const firstKey = Object.values(LIST_NAME)[0];
     const [activeItem, setActiveItem] = useState(firstKey); // Cостояние для отслеживания активного элемента
 
-    const handleItemClick = (item: string) => {
-        setActiveItem(item);
+    const handleItemClick = (item: ListNameValues) => {
+        setActiveItem(item)
+        setListItem(item)
+        filterCourses(item)
     }
    
   return (
     <div className='courses'>
       <ul className='courses__list'>
-         {Object.entries(list).map(([key]) => (
-                     <ListItem
-                        key={key}
-                        // itemKey={key} 
-                        isActive={activeItem === key}
-                        onClick={() => handleItemClick(key)}
+         {Object.values(list).map((value) => (
+                    <ListItem
+                        key={value}
+                        item={value}
+                        isActive={activeItem === value}
+                        onClick={() => handleItemClick(value)}
                     >
-                        {key}
+                        {value}
                     </ListItem>
                 ))}
       </ul>
