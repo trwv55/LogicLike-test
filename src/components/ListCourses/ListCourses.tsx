@@ -4,12 +4,11 @@ import ListItem from '../ListItem/ListItem';
 import { ListNameValues } from '../../types/types';
 
 type TListCoursesProps = {
-    setListItem: (item: ListNameValues) => void
     filterCourses: (item: ListNameValues) => void
 }
 
 // Список курсов
-const ListCourses = ({ setListItem, filterCourses }: TListCoursesProps) => {
+const ListCourses = ({ filterCourses }: TListCoursesProps) => {
     const list = LIST_NAME;
     const firstKey = Object.values(LIST_NAME)[0];
     const [activeItem, setActiveItem] = useState(firstKey); // Cостояние для отслеживания активного элемента
@@ -17,7 +16,7 @@ const ListCourses = ({ setListItem, filterCourses }: TListCoursesProps) => {
     
     const handleItemClick = useCallback((item: ListNameValues) => {
         setActiveItem(item);
-        setListItem(item);
+        // setListItem(item);
         filterCourses(item);
     }, [filterCourses]);
    

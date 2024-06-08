@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from 'react'
 import { fetchData } from '../../api/api'
 import { FETCH_URL, LIST_KEYS, LIST_NAME } from '../../config'
@@ -7,14 +8,11 @@ import ListCourses from '../ListCourses/ListCourses'
 
 const Board = () => {
   const [dataCourse, setDataCourse] = useState<TCoursesData[]>([]) // Храним курсы
-  const [listItem, setListItem] = useState<ListNameValues| string>('') // Храним категорию курса
   const [filteredCourses, setFilteredCourses] = useState<TCoursesData[]>([]) // Храним отфильтрованные курсы
   const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string | null>(null)
   
   const loadData = async () => {
         setLoading(true)
-        setError(null)
 
         try {
             const data = await fetchData(FETCH_URL)
@@ -23,7 +21,6 @@ const Board = () => {
                 setFilteredCourses(data) // Изначально все курсы
             }
         } catch (error) {
-            setError('Не удалось загрузить данные. Попробуйте еще раз позже.');
             console.error('Network response was not ok', error)
             throw error
         } finally {
@@ -62,7 +59,7 @@ const Board = () => {
   return (
     <div className='container'>
         <div className="board">
-            <ListCourses setListItem={setListItem} filterCourses={filterCourses} />
+            <ListCourses filterCourses={filterCourses} />
             <BoardCourses dataCourse={filteredCourses} />
         </div>
     </div>
