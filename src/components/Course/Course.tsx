@@ -7,12 +7,8 @@ type TCourseProps = {
 
 const Course = ({item}: TCourseProps) => {
 
-  const handeClick = () => {
-      console.log(item.tags)
-  }
-
   return (
-    <a className="course-item" href='#' onClick={handeClick}>
+    <a className="course-item" href='#'>
         <div className="course-item__top" style={{ backgroundColor: item.bgColor }}>
             <div className="course-item__img">
                 <img src={item.image} alt="" />
@@ -26,4 +22,4 @@ const Course = ({item}: TCourseProps) => {
   )
 }
 
-export default Course
+export default React.memo(Course)

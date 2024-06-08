@@ -2,13 +2,12 @@ import React from 'react';
 
 interface IListItemProps {
     isActive: boolean;
-    item: string;
     onClick: () => void;
     children: React.ReactNode;
 }
 
 // Раздел курсов
-const ListItem: React.FC<IListItemProps> = ({  isActive, onClick, children, item }) => {
+const ListItem: React.FC<IListItemProps> = ({  isActive, onClick, children }) => {
 
     return (
         <li
@@ -20,4 +19,4 @@ const ListItem: React.FC<IListItemProps> = ({  isActive, onClick, children, item
     );
 }
 
-export default ListItem;
+export default React.memo(ListItem);

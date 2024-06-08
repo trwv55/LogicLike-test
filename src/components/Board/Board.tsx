@@ -7,7 +7,7 @@ import ListCourses from '../ListCourses/ListCourses'
 
 const Board = () => {
   const [dataCourse, setDataCourse] = useState<TCoursesData[]>([]) // Храним курсы
-  const [listItem, setListItem] = useState(null) // Храним категорию курса
+  const [listItem, setListItem] = useState<ListNameValues| string>('') // Храним категорию курса
   const [filteredCourses, setFilteredCourses] = useState<TCoursesData[]>([]) // Храним отфильтрованные курсы
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
@@ -31,7 +31,6 @@ const Board = () => {
         }
     };
 
-    console.log('listItem', listItem)
   // Получаем все курсы 
   useEffect(() => {
         loadData();
@@ -51,7 +50,13 @@ const Board = () => {
   }
 
   if (loading) {
-      return <div className="loading">Загрузка...</div>;
+      return (
+       <div className="loading">
+        <div className="loading__spinner">
+            <p>Loading...</p>
+        </div>
+      </div>
+      );
   }
   
   return (

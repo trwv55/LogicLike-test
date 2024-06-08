@@ -11,7 +11,7 @@ import { TListKeysType, TListName } from "./types/types"
     WORLD: 'Окружающий мир',
 }
 
-// Для сортировки
+// Для сортировки cjcxcs
  const LIST_KEYS: TListKeysType = {
     [LIST_NAME.ALL]: ['Все темы'],
     [LIST_NAME.LOGIC]: ['Логика и мышление'],

@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { LIST_KEYS, LIST_NAME } from '../../config';
+import { useCallback, useState } from 'react';
+import { LIST_NAME } from '../../config';
 import ListItem from '../ListItem/ListItem';
-import { ListNameValues, TListName } from '../../types/types';
+import { ListNameValues } from '../../types/types';
 
 type TListCoursesProps = {
     setListItem: (item: ListNameValues) => void
@@ -14,11 +14,12 @@ const ListCourses = ({ setListItem, filterCourses }: TListCoursesProps) => {
     const firstKey = Object.values(LIST_NAME)[0];
     const [activeItem, setActiveItem] = useState(firstKey); // Cостояние для отслеживания активного элемента
 
-    const handleItemClick = (item: ListNameValues) => {
-        setActiveItem(item)
-        setListItem(item)
-        filterCourses(item)
-    }
+    
+    const handleItemClick = useCallback((item: ListNameValues) => {
+        setActiveItem(item);
+        setListItem(item);
+        filterCourses(item);
+    }, [filterCourses]);
    
   return (
     <div className='courses'>
@@ -26,7 +27,6 @@ const ListCourses = ({ setListItem, filterCourses }: TListCoursesProps) => {
          {Object.values(list).map((value) => (
                     <ListItem
                         key={value}
-                        item={value}
                         isActive={activeItem === value}
                         onClick={() => handleItemClick(value)}
                     >
