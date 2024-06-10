@@ -1,30 +1,38 @@
-# React + TypeScript + Vite
+# Проект: Logic-Like Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Проект задеплоен на хостинге Vercel: [https://logic-like-test-ten.vercel.app/](https://logic-like-test-ten.vercel.app/)
 
-Currently, two official plugins are available:
+## Описание
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Этот проект выводит список курсов и позволяет пользователям фильтровать курсы по выбранным темам (tags). Весь контент, включая список тем, формируется динамически на основе ответа от бэкэнда.
 
-## Expanding the ESLint configuration
+## Техническое задание
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Техническое задание для этого проекта можно найти по следующей ссылке: [ТЗ](https://docs.google.com/document/d/1nac_dVRto6Fr7d3qZC9opjYIqCDx9L1zC-4CNyq91e0/edit?pli=1)
 
-- Configure the top-level `parserOptions` property like this:
+## Стек технологий
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+-   **React**
+-   **TypeScript**
+
+## Установка и запуск проекта
+
+### Установка зависимостей
+
+Для установки необходимых зависимостей выполните команду:
+
+```sh
+npm i
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Для запуска проекта в режиме разработки выполните команду:
+
+```sh
+npm run dev
+```
+
+Для сборки проекта выполните команду:
+
+```sh
+npm run build
+```
