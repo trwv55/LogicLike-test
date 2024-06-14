@@ -14,6 +14,7 @@
 
 -   **React**
 -   **TypeScript**
+-   **React-Query**
 
 ## Установка и запуск проекта
 
